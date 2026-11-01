@@ -1,0 +1,2545 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4EEDF">
+  <meta name="description" content="十道真实生活情境题，测出你的维权意识，生成一张专属法治 DNA 海报。">
+  <title>测测你的法治 DNA｜校园法治实验室</title>
+  <style>
+    :root {
+      --paper: #f4eedf;
+      --paper-deep: #e9dfca;
+      --ink: #112c40;
+      --ink-soft: #456071;
+      --red: #e4553e;
+      --red-deep: #bb3f32;
+      --yellow: #efc65a;
+      --mint: #abd8c5;
+      --white: #fffdf8;
+      --line: rgba(17, 44, 64, 0.16);
+      --shadow: 0 22px 60px rgba(37, 49, 48, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--paper); }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 7%, rgba(239, 198, 90, 0.34), transparent 25rem),
+        radial-gradient(circle at 94% 30%, rgba(171, 216, 197, 0.38), transparent 30rem),
+        linear-gradient(180deg, #f8f3e8 0%, var(--paper) 48%, #eee4d2 100%);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+    [hidden] { display: none !important; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .page-noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.26;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    .site-header {
+      width: min(1040px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 18px 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid rgba(17, 44, 64, 0.14);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .brand-emblem {
+      width: 80px;
+      height: 80px;
+      display: block;
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid rgba(17, 44, 64, 0.18);
+      border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(17, 44, 64, 0.12);
+    }
+
+    .brand-emblem img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 50%;
+    }
+
+    .brand-mark svg { width: 18px; height: 18px; }
+    .header-note {
+      color: var(--ink-soft);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    .app {
+      width: min(1040px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 14px 0 54px;
+      min-width: 0;
+    }
+
+    .screen { animation: screen-in 0.5s ease both; }
+    @keyframes screen-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.78fr);
+      align-items: center;
+      gap: clamp(32px, 7vw, 94px);
+      min-height: calc(100vh - 150px);
+      padding: 20px 0 30px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--red);
+    }
+
+    .hero-title {
+      max-width: 720px;
+      margin: 0;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-size: clamp(54px, 8vw, 104px);
+      font-weight: 900;
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+    }
+
+    .hero-title .accent {
+      position: relative;
+      display: inline-block;
+      color: var(--red);
+    }
+
+    .hero-title .accent::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 2%;
+      right: -2%;
+      bottom: 3%;
+      height: 18%;
+      background: var(--yellow);
+      transform: rotate(-1.3deg);
+      border-radius: 2px;
+    }
+
+    .hero-en {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 12px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      transform: rotate(-1deg);
+    }
+
+    .hero-subtitle {
+      max-width: 520px;
+      margin: 26px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.85;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 24px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-meta i {
+      width: 6px;
+      height: 6px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .start-card {
+      position: relative;
+      padding: 24px;
+      background: rgba(255, 253, 248, 0.94);
+      border: 1px solid rgba(17, 44, 64, 0.1);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .start-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -50px;
+      top: -58px;
+      border-radius: 50%;
+      background: var(--mint);
+      opacity: 0.72;
+    }
+
+    .profile-setup {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .avatar-button {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      flex: 0 0 auto;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 0 4px var(--white), 0 0 0 6px var(--ink);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .avatar-button:hover .avatar-action { transform: translateY(0); }
+    .avatar-button img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .default-avatar {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 34%, #fff9ec 0 17%, transparent 18%),
+        radial-gradient(ellipse at 50% 94%, #fff9ec 0 38%, transparent 39%),
+        var(--yellow);
+    }
+
+    .avatar-action {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 5px 2px;
+      color: var(--white);
+      background: rgba(17, 44, 64, 0.86);
+      font-size: 10px;
+      font-weight: 600;
+      transform: translateY(100%);
+      transition: transform 0.2s ease;
+    }
+
+    .profile-copy { min-width: 0; }
+    .profile-copy strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .profile-copy span {
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .nickname-field { margin-bottom: 16px; }
+    .field-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .nickname-input {
+      width: 100%;
+      height: 50px;
+      padding: 0 15px;
+      color: var(--ink);
+      background: #f5efe3;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .nickname-input:focus {
+      background: var(--white);
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(17, 44, 64, 0.08);
+    }
+
+    .primary-button {
+      width: 100%;
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 20px;
+      color: var(--white);
+      background: var(--ink);
+      border: 0;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(17, 44, 64, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .primary-button:hover {
+      background: #1a3a51;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(17, 44, 64, 0.22);
+    }
+
+    .primary-button:active { transform: translateY(0); }
+    .primary-button svg { width: 19px; height: 19px; }
+
+    .privacy-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin: 13px 0 0;
+      color: var(--ink-soft);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .privacy-note svg {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+
+    .intro-visual {
+      position: absolute;
+      right: -50px;
+      bottom: -52px;
+      width: 190px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .quiz-layout {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 14px 0 20px;
+      min-width: 0;
+    }
+
+    .quiz-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .back-button, .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 42px;
+      padding: 9px 13px;
+      color: var(--ink-soft);
+      background: rgba(255, 253, 248, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .back-button svg, .icon-button svg { width: 16px; height: 16px; }
+    .step-counter {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .progress-track {
+      height: 7px;
+      margin-bottom: 20px;
+      background: rgba(17, 44, 64, 0.1);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: var(--red);
+      border-radius: inherit;
+      transition: width 0.45s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .question-card {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      padding: clamp(24px, 5vw, 44px);
+      background: rgba(255, 253, 248, 0.96);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .question-card::after {
+      content: "?";
+      position: absolute;
+      right: 24px;
+      top: -28px;
+      color: rgba(17, 44, 64, 0.045);
+      font-family: Georgia, serif;
+      font-size: 180px;
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .question-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--red-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+    }
+
+    .question-kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .question-title {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-size: clamp(27px, 4.6vw, 42px);
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: -0.025em;
+    }
+
+    .question-hint {
+      position: relative;
+      z-index: 1;
+      margin: 10px 0 24px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .options {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .option {
+      width: 100%;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 13px;
+      align-items: center;
+      min-height: 74px;
+      padding: 13px 15px;
+      text-align: left;
+      color: var(--ink);
+      background: #f5efe3;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .option:hover {
+      background: #fbf6ec;
+      border-color: rgba(17, 44, 64, 0.22);
+      transform: translateX(3px);
+    }
+
+    .option[aria-pressed="true"] {
+      background: #fff8e4;
+      border-color: var(--ink);
+      box-shadow: inset 0 0 0 1px var(--ink);
+    }
+
+    .option-letter {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid rgba(17, 44, 64, 0.13);
+      border-radius: 50%;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .option[aria-pressed="true"] .option-letter {
+      color: var(--white);
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .option-copy strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .option-copy span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .option-copy { min-width: 0; }
+
+    .quiz-action {
+      margin-top: 22px;
+    }
+
+    .quiz-action .primary-button:disabled {
+      color: rgba(17, 44, 64, 0.38);
+      background: rgba(17, 44, 64, 0.09);
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .analysis {
+      width: min(480px, 100%);
+      margin: 12vh auto 0;
+      text-align: center;
+    }
+
+    .analysis-orbit {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 28px;
+      border: 1px dashed rgba(17, 44, 64, 0.32);
+      border-radius: 50%;
+      animation: spin 7s linear infinite;
+    }
+
+    .analysis-orbit::before, .analysis-orbit::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+    }
+
+    .analysis-orbit::before {
+      left: 9px;
+      top: 20px;
+      background: var(--yellow);
+    }
+
+    .analysis-orbit::after {
+      right: 7px;
+      bottom: 26px;
+      background: var(--red);
+    }
+
+    .analysis-core {
+      width: 92px;
+      height: 92px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 50%;
+      animation: spin 7s linear infinite reverse;
+    }
+
+    .analysis-core svg { width: 43px; height: 43px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .analysis h2 {
+      margin: 0 0 10px;
+      font-family: "Songti SC", "STSong", serif;
+      font-size: 28px;
+    }
+
+    .analysis p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .result-layout {
+      display: grid;
+      grid-template-columns: minmax(360px, 460px) minmax(280px, 1fr);
+      align-items: center;
+      gap: clamp(32px, 6vw, 72px);
+      padding: 8px 0 20px;
+      min-width: 0;
+    }
+
+    .poster-stage {
+      position: relative;
+      padding: 0 12px;
+      width: 100%;
+      max-width: 460px;
+      min-width: 0;
+    }
+
+    .poster-stage::before {
+      content: "";
+      position: absolute;
+      inset: 8% 0 4% 0;
+      background: var(--mint);
+      border-radius: 42% 58% 37% 63% / 48% 36% 64% 52%;
+      transform: rotate(-3deg);
+      opacity: 0.64;
+    }
+
+    .poster {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 3 / 4;
+      padding: 7.2% 7.4% 5.8%;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 94% 9%, rgba(239, 198, 90, 0.37), transparent 25%),
+        linear-gradient(160deg, #fffdf7 0%, #f7f0e2 100%);
+      border: 0;
+      border-radius: 3px;
+      box-shadow: 0 28px 70px rgba(27, 45, 50, 0.2);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .poster::before {
+      content: none;
+    }
+
+    .poster-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 5.5%;
+      border-bottom: 2px solid var(--ink);
+      font-size: clamp(8px, 1.5vw, 11px);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .poster-emblem {
+      width: clamp(48px, 11vw, 62px);
+      aspect-ratio: 1;
+      display: block;
+      background: var(--white);
+      border: 1px solid rgba(17, 44, 64, 0.2);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .poster-top span:last-child {
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .poster-heading {
+      position: relative;
+      margin-top: 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4%;
+    }
+
+    .poster-heading h2 {
+      margin: 0;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-size: clamp(29px, 7.2vw, 58px);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+    }
+
+    .poster-heading h2 em {
+      display: block;
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .poster-seal {
+      width: clamp(54px, 13vw, 82px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--white);
+      background: var(--red);
+      border-radius: 50%;
+      font-family: "Songti SC", "STSong", serif;
+      font-size: clamp(10px, 2.4vw, 15px);
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      transform: rotate(7deg);
+      box-shadow: 4px 5px 0 var(--ink);
+    }
+
+    .poster-profile {
+      position: relative;
+      margin-top: 7%;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 5%;
+    }
+
+    .poster-avatar-shell {
+      position: relative;
+      width: clamp(76px, 18vw, 112px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+    }
+
+    .poster-avatar-shell::before, .poster-avatar-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .poster-avatar-shell::before {
+      width: 18%;
+      aspect-ratio: 1;
+      right: -7%;
+      top: 12%;
+      background: var(--yellow);
+      border: 1px solid var(--ink);
+    }
+
+    .poster-avatar-shell::after {
+      width: 10%;
+      aspect-ratio: 1;
+      left: -4%;
+      bottom: 13%;
+      background: var(--red);
+    }
+
+    .poster-avatar {
+      width: 82%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      object-fit: cover;
+      overflow: hidden;
+      background: var(--yellow);
+    }
+
+    .poster-avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+    .poster-avatar .default-avatar { font-family: "Songti SC", serif; font-size: clamp(24px, 6vw, 42px); font-weight: 800; }
+
+    .poster-person strong {
+      display: block;
+      overflow: hidden;
+      font-size: clamp(15px, 3.2vw, 23px);
+      font-weight: 800;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .poster-person span {
+      display: inline-block;
+      margin-top: 5px;
+      color: var(--ink-soft);
+      font-size: clamp(8px, 1.7vw, 11px);
+      letter-spacing: 0.08em;
+    }
+
+    .poster-person h3 {
+      margin: 7px 0 0;
+      color: var(--red-deep);
+      font-family: "Songti SC", "STSong", serif;
+      font-size: clamp(20px, 4.8vw, 35px);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .poster-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+      padding: 4px 8px;
+      color: var(--ink);
+      background: var(--yellow);
+      border: 1px solid var(--ink);
+      border-radius: 99px;
+      font-size: clamp(6px, 1.35vw, 9px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .poster-quote {
+      margin: 6% 0 0;
+      max-width: 92%;
+      font-family: "Songti SC", "STSong", serif;
+      font-size: clamp(13px, 2.8vw, 20px);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .poster-quote::before { content: "“"; color: var(--red); }
+    .poster-quote::after { content: "”"; color: var(--red); }
+
+    .poster-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 5%;
+    }
+
+    .poster-traits span {
+      padding: 5px 9px;
+      background: var(--ink);
+      border-radius: 99px;
+      color: var(--white);
+      font-size: clamp(7px, 1.5vw, 10px);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .poster-traits span:nth-child(2) {
+      color: var(--ink);
+      background: var(--yellow);
+    }
+
+    .poster-traits span:nth-child(3) {
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--ink);
+    }
+
+    .poster-campus {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 15.5%;
+      width: 100%;
+      height: 17%;
+      object-fit: contain;
+      object-position: center bottom;
+      opacity: 0.62;
+      z-index: 1;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 2%, #000 48%, #000 100%);
+      mask-image: linear-gradient(to bottom, transparent 2%, #000 48%, #000 100%);
+    }
+
+    .poster-dna {
+      position: absolute;
+      right: 6.5%;
+      bottom: 22%;
+      width: 8%;
+      opacity: 0.48;
+      z-index: 1;
+    }
+
+    .poster-event {
+      position: absolute;
+      left: 7.4%;
+      right: 7.4%;
+      bottom: 10.4%;
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 8%;
+      padding: 2.8% 3%;
+      background: rgba(255, 253, 248, 0.9);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      z-index: 3;
+    }
+
+    .poster-event small {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink-soft);
+      font-size: clamp(5px, 1.2vw, 8px);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .poster-event strong {
+      display: block;
+      font-family: "Songti SC", "STSong", serif;
+      font-size: clamp(8px, 1.85vw, 13px);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .poster-footer {
+      position: absolute;
+      left: 7.4%;
+      right: 7.4%;
+      bottom: 3.8%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 2.5%;
+      border-top: 1px solid rgba(17, 44, 64, 0.45);
+      z-index: 3;
+    }
+
+    .poster-heading, .poster-profile, .poster-quote, .poster-traits {
+      position: relative;
+      z-index: 2;
+    }
+
+    .poster-footer strong {
+      display: block;
+      font-size: clamp(7px, 1.45vw, 10px);
+      letter-spacing: 0.08em;
+    }
+
+    .poster-footer span {
+      display: block;
+      margin-top: 2px;
+      color: var(--ink-soft);
+      font-size: clamp(5px, 1.2vw, 8px);
+    }
+
+    .poster-code {
+      text-align: right;
+      font-family: "Courier New", monospace;
+      font-size: clamp(5px, 1.15vw, 8px);
+      letter-spacing: 0.05em;
+    }
+
+    .result-panel {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .result-panel .eyebrow { margin-bottom: 16px; }
+    .result-panel h2 {
+      margin: 0;
+      font-family: "Songti SC", "STSong", serif;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+    }
+
+    .result-scoreline {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      margin: 14px 0 0;
+    }
+
+    .result-scoreline strong {
+      color: var(--red);
+      font-family: Georgia, "Songti SC", serif;
+      font-size: 31px;
+      line-height: 1;
+    }
+
+    .result-scoreline span {
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .result-summary {
+      margin: 18px 0 24px;
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .dna-bars {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .dna-row {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr) 45px;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .dna-track {
+      height: 7px;
+      background: rgba(17, 44, 64, 0.11);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .dna-fill {
+      width: 0;
+      height: 100%;
+      background: var(--ink);
+      border-radius: inherit;
+      transition: width 0.7s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .dna-row:first-child .dna-fill { background: var(--red); }
+    .dna-value { color: var(--ink-soft); text-align: right; font-variant-numeric: tabular-nums; }
+
+    .result-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .secondary-button, .ghost-button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 15px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .secondary-button {
+      color: var(--ink);
+      background: var(--yellow);
+      border: 1px solid var(--ink);
+      box-shadow: 3px 4px 0 var(--ink);
+    }
+
+    .ghost-button {
+      color: var(--ink);
+      background: rgba(255, 253, 248, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .secondary-button svg, .ghost-button svg { width: 17px; height: 17px; }
+    .result-disclaimer {
+      margin: 16px 0 0;
+      color: var(--ink-soft);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 50;
+      left: 50%;
+      bottom: max(24px, env(safe-area-inset-bottom));
+      min-width: min(340px, calc(100vw - 40px));
+      max-width: calc(100vw - 40px);
+      padding: 13px 18px;
+      color: var(--white);
+      background: rgba(17, 44, 64, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 12px 34px rgba(17, 44, 64, 0.28);
+      font-size: 13px;
+      text-align: center;
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+
+    .toast.is-visible {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (max-width: 800px) {
+      .site-header, .app { width: calc(100% - 36px); }
+      .site-header { padding-top: 15px; }
+      .header-note { display: none; }
+      .app { padding-top: 8px; }
+      .intro-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        min-height: auto;
+        padding-top: 10px;
+      }
+      .hero-title { font-size: clamp(54px, 17vw, 80px); }
+      .start-card { max-width: 520px; width: 100%; margin: 0 auto; }
+      .result-layout {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+      .poster-stage { width: 100%; margin: 0 auto; }
+      .result-panel { width: 100%; margin: 0 auto; }
+    }
+
+    @media (max-width: 520px) {
+      .site-header, .app { width: calc(100% - 28px); max-width: 480px; }
+      .brand { font-size: 11px; }
+      .brand-emblem { width: 66px; height: 66px; }
+      .hero-title { font-size: clamp(51px, 17vw, 75px); }
+      .hero-subtitle { margin-top: 20px; font-size: 14px; }
+      .hero-meta { gap: 8px 13px; font-size: 11px; }
+      .start-card { padding: 20px; border-radius: 24px; }
+      .question-card { padding: 25px 19px; border-radius: 24px; }
+      .option { grid-template-columns: 34px minmax(0, 1fr); padding: 13px 12px; gap: 11px; }
+      .option-copy strong { font-size: 13px; }
+      .option-copy span { font-size: 10px; }
+      .poster-stage { padding: 0 4px; }
+      .poster { padding: 7.6% 7.8% 5.8%; }
+      .poster-heading h2 { font-size: clamp(31px, 10.2vw, 48px); }
+      .poster-seal { font-size: 10px; }
+      .poster-avatar-shell { width: 84px; }
+      .poster-person h3 { font-size: 23px; }
+      .result-panel h2 { font-size: 38px; }
+      .action-row { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-emblem">
+        <img src="./assets/gcc-emblem.png" alt="广州商学院校徽">
+      </span>
+    </div>
+    <div class="header-note">校园法治互动 · 2026</div>
+  </header>
+
+  <main class="app">
+    <section class="screen intro-layout" id="introScreen">
+      <div class="hero-copy">
+        <div class="eyebrow">互动测试 · 约 2 分钟</div>
+        <h1 class="hero-title">测测你的<br><span class="accent">法治 DNA</span></h1>
+        <div class="hero-en">知权 · 明理 · 敢发声</div>
+        <p class="hero-subtitle">
+          十道真实生活情境，涵盖劳动权、隐私权、消费权和校园公共生活。看看你会怎样作出选择，再生成专属“维权先锋”海报。
+        </p>
+        <div class="hero-meta" aria-label="活动信息">
+          <span><i></i>10 道情境题</span>
+          <span><i></i>8 种维权画像</span>
+          <span><i></i>头像专属海报</span>
+        </div>
+      </div>
+
+      <aside class="start-card" aria-labelledby="setupTitle">
+        <div class="profile-setup">
+          <button class="avatar-button" id="avatarButton" type="button" aria-label="上传微信头像">
+            <span class="default-avatar" id="avatarPreview" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                <circle cx="32" cy="23" r="10" fill="#112C40"/>
+                <path d="M14 55c1-12 8-19 18-19s17 7 18 19" fill="#112C40"/>
+              </svg>
+            </span>
+            <span class="avatar-action">更换头像</span>
+          </button>
+          <div class="profile-copy">
+            <strong id="setupTitle">先亮出你的头像</strong>
+            <span>微信授权接入后可直接带入；当前也可手动选择照片。仅在本机合成。</span>
+          </div>
+        </div>
+
+        <label class="nickname-field" for="nickname">
+          <span class="field-label">
+            <span>你的昵称（选填）</span>
+            <span id="nicknameCount">0 / 12</span>
+          </span>
+          <input class="nickname-input" id="nickname" type="text" maxlength="12" autocomplete="nickname" placeholder="留空则显示“校园法治合伙人”">
+        </label>
+
+        <button class="primary-button" id="startButton" type="button">
+          开始测试
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="privacy-note">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+          头像不会上传服务器。测试结果仅用于校园普法互动，不构成法律意见。
+        </p>
+        <img class="intro-visual" src="./assets/school-campus-lineart.png" alt="">
+      </aside>
+    </section>
+
+    <section class="screen quiz-layout" id="quizScreen" hidden>
+      <div class="quiz-topline">
+        <button class="back-button" id="backButton" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M19 12H5M10 7L5 12L10 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          返回
+        </button>
+        <div class="step-counter" id="stepCounter" aria-live="polite">01 / 10</div>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="答题进度" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="question-card" id="questionCard">
+        <div class="question-kicker" id="questionKicker">SCENARIO 01</div>
+        <h2 class="question-title" id="questionTitle"></h2>
+        <p class="question-hint" id="questionHint"></p>
+        <div class="options" id="options" role="group" aria-labelledby="questionTitle"></div>
+        <div class="quiz-action">
+          <button class="primary-button" id="nextButton" type="button" disabled>
+            下一题
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen analysis" id="analysisScreen" hidden aria-live="polite">
+      <div class="analysis-orbit" aria-hidden="true">
+        <div class="analysis-core">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M23 7C33 16 33 27 25 35C17 43 17 53 27 58C18 58 10 51 9 42C8 31 17 22 23 7Z" fill="currentColor" opacity=".9"/>
+            <path d="M41 7C31 16 31 27 39 35C47 43 47 53 37 58C46 58 54 51 55 42C56 31 47 22 41 7Z" fill="currentColor" opacity=".68"/>
+          </svg>
+        </div>
+      </div>
+      <h2>正在组合你的法治 DNA</h2>
+      <p id="analysisCopy">正在读取你的选择倾向，并生成专属海报…</p>
+    </section>
+
+    <section class="screen" id="resultScreen" hidden aria-live="polite">
+      <div class="result-layout">
+        <div class="poster-stage">
+          <article class="poster" id="posterDom" aria-label="我的法治 DNA 结果海报">
+            <div class="poster-top">
+              <img class="poster-emblem" src="./assets/gcc-emblem.png" alt="广州商学院校徽">
+              <span>我的法治 DNA</span>
+            </div>
+
+            <div class="poster-heading">
+              <h2>我的<em>法治 DNA</em></h2>
+              <div class="poster-seal">维权<br>先锋</div>
+            </div>
+
+            <div class="poster-profile">
+              <div class="poster-avatar-shell">
+                <div class="poster-avatar" id="posterAvatar">
+                  <span class="default-avatar">我</span>
+                </div>
+              </div>
+              <div class="poster-person">
+                <strong id="posterName">校园法治合伙人</strong>
+                <span>知权 · 明理 · 敢发声</span>
+                <h3 id="posterArchetype">硬核维权战神</h3>
+                <span class="poster-score" id="posterScore">法治意识 20 / 20</span>
+              </div>
+            </div>
+
+            <p class="poster-quote" id="posterQuote">先留证据，再好好说话。</p>
+            <div class="poster-traits" id="posterTraits">
+              <span>#先留证据</span><span>#守住边界</span><span>#理性表达</span>
+            </div>
+
+            <img class="poster-campus" src="./assets/school-campus-lineart.png" alt="">
+            <svg class="poster-dna" viewBox="0 0 90 220" fill="none" aria-hidden="true">
+              <path d="M23 7C67 42 23 91 67 126C96 149 61 188 38 213" stroke="#E4553E" stroke-width="3" stroke-linecap="round"/>
+              <path d="M67 7C23 42 67 91 23 126C-6 149 29 188 52 213" stroke="#112C40" stroke-width="3" stroke-linecap="round"/>
+              <g fill="#F4EEDF" stroke="#112C40" stroke-width="2.5">
+                <circle cx="42" cy="31" r="5"/><circle cx="47" cy="67" r="5"/><circle cx="41" cy="103" r="5"/><circle cx="49" cy="143" r="5"/><circle cx="36" cy="184" r="5"/>
+              </g>
+            </svg>
+
+            <div class="poster-event">
+              <div>
+                <small>活动地点</small>
+                <strong>八、九教中庭广场</strong>
+              </div>
+              <div>
+                <small>活动时间</small>
+                <strong>10:00-18:00</strong>
+              </div>
+            </div>
+
+            <div class="poster-footer">
+              <div>
+                <strong>知法 · 守法 · 用法</strong>
+                <span>校园普法互动 · <span id="posterDate">2026.10</span></span>
+              </div>
+              <div class="poster-code">
+                活动编号<br>
+                <span id="posterCode">000000</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="result-panel">
+          <div class="eyebrow">你的结果已生成</div>
+          <h2 id="resultHeading">法条在手，<br>边界感拉满。</h2>
+          <div class="result-scoreline"><strong id="resultScore">20 / 20</strong><span>法治意识得分</span></div>
+          <p class="result-summary" id="resultSummary"></p>
+          <div class="dna-bars" id="dnaBars" aria-label="四个主题场景的得分"></div>
+          <div class="result-actions">
+            <button class="primary-button" id="saveButton" type="button">
+              保存我的海报
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 4V15M7 10L12 15L17 10M5 19H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="action-row">
+              <button class="secondary-button" id="shareButton" type="button">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M8.5 10.5L15.5 6.5M8.5 13.5L15.5 17.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                分享给朋友
+              </button>
+              <button class="ghost-button" id="retryButton" type="button">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 7V12H15M4 17V12H9M6.1 8.2A7 7 0 0 1 18.7 7M17.9 15.8A7 7 0 0 1 5.3 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                再测一次
+              </button>
+            </div>
+          </div>
+          <p class="result-disclaimer">
+            海报由本机自动合成；抖音、微博或微信中保存在相册后即可分享。微信授权能力上线后，可直接带入微信头像。
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <input class="sr-only" id="avatarInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+  <canvas id="posterCanvas" width="1080" height="1440" hidden></canvas>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./assets/embedded-assets.js"></script>
+  <script>
+    const allQuestionBank = [
+      {
+        category: "劳动权",
+        kicker: "SCENARIO 01 · 劳动权",
+        title: "试用期不交社保，HR 说转正后再交。你的内心 OS 是？",
+        hint: "凭第一反应选择，没有绝对的对错，只有真实的维权意识。",
+        options: [
+          { title: "违法了吧？试用期也必须依法缴纳社保", hint: "试用期同样是劳动关系，社保不能等转正。", score: 2 },
+          { title: "很多公司都这样，为了工作先忍了", hint: "担心提出异议会影响入职，选择暂不追究。", score: 1 },
+          { title: "不交正好，每个月还能多拿点现金", hint: "更在意眼前收入，暂时忽略了长期保障。", score: 0 }
+        ]
+      },
+      {
+        category: "劳动权",
+        kicker: "SCENARIO 02 · 劳动权",
+        title: "周末逛街时，老板突然在群里 @ 你处理工作表格，你会？",
+        hint: "休息时间收到工作消息，你的第一反应是什么？",
+        options: [
+          { title: "截图取证，回复“周末休息，周一第一时间处理”", hint: "明确表达休息边界，也留下沟通记录。", score: 2 },
+          { title: "假装没看见，等周一再说", hint: "不想立刻处理，但没有明确说明自己的工作安排。", score: 1 },
+          { title: "秒回“收到”，马上打开电脑加班", hint: "优先满足工作要求，暂时忽略了休息权益。", score: 0 }
+        ]
+      },
+      {
+        category: "劳动权",
+        kicker: "SCENARIO 03 · 劳动权",
+        title: "面试时，HR 问：“你近期有结婚或生小孩的打算吗？”",
+        hint: "面对与岗位能力无关的私人问题，你会如何回应？",
+        options: [
+          { title: "礼貌反问：这个问题与岗位录用标准有直接关联吗？", hint: "把问题拉回岗位能力与录用标准。", score: 2 },
+          { title: "随便编个理由糊弄过去，先拿到 offer", hint: "想先避开尴尬，但没有正面处理不合理询问。", score: 1 },
+          { title: "把自己的恋爱、结婚和生育计划全盘托出", hint: "完全配合提问，忽略了个人信息边界。", score: 0 }
+        ]
+      },
+      {
+        category: "劳动权",
+        kicker: "SCENARIO 04 · 劳动权",
+        title: "年底老板以“效益不好”为由，不发年终奖还要扣底薪，你会？",
+        hint: "辛苦工作一年却遇到工资问题，你准备怎么应对？",
+        options: [
+          { title: "保存工资条、打卡记录，向劳动监察投诉或申请仲裁", hint: "先固定劳动关系和工资证据，再走正规渠道。", score: 2 },
+          { title: "带头在公司群里大闹一场，痛骂老板", hint: "情绪得到了宣泄，但证据和诉求不够清晰。", score: 1 },
+          { title: "觉得老板也不容易，默默接受", hint: "体谅对方处境，却放弃了自己的工资权益。", score: 0 }
+        ]
+      },
+      {
+        category: "劳动权",
+        kicker: "SCENARIO 05 · 劳动权",
+        title: "公司让你签一份“自愿放弃带薪年假”的协议，你会？",
+        hint: "看似“自愿”的协议，也未必能排除法定权利。",
+        options: [
+          { title: "拒绝签字，带薪年假是法定权利", hint: "对以“自愿”为名的权利放弃保持警惕。", score: 2 },
+          { title: "签就签吧，不签怕被穿小鞋", hint: "担心职场压力而妥协，但可以先咨询和保留证据。", score: 1 },
+          { title: "赶紧签，我本来也不需要休假", hint: "主动放弃应休未休的年假权益。", score: 0 }
+        ]
+      },
+      {
+        category: "隐私与人身权",
+        kicker: "SCENARIO 06 · 隐私权与网络表达",
+        title: "朋友被一条来源不明的“黑料”造谣，你会？",
+        hint: "当伤害发生在朋友身上，你会怎样守住事实与边界？",
+        options: [
+          { title: "截图提醒朋友留存证据，必要时报警或起诉", hint: "先帮朋友固定证据，再通过合法渠道制止造谣。", score: 2 },
+          { title: "在评论区跟骂朋友的人对骂", hint: "想替朋友出气，但情绪化表达可能让冲突升级。", score: 1 },
+          { title: "吃瓜不信瓜，默默划过，事不关己", hint: "不参与扩散，但也没有为朋友提供实际帮助。", score: 0 }
+        ]
+      },
+      {
+        category: "隐私与人身权",
+        kicker: "SCENARIO 07 · 人身权",
+        title: "商场试衣间门缝上方似乎有手机摄像头在闪，你会？",
+        hint: "先确保自身安全，再想办法固定现场和求助。",
+        options: [
+          { title: "穿好衣服离开并呼救，请店员协助报警和调监控", hint: "避免直接冲突，同时让现场人员协助处理。", score: 2 },
+          { title: "吓得跑出商场，自认倒霉", hint: "保护了自身安全，但没有及时阻止和留下证据。", score: 1 },
+          { title: "从门缝里用自己的手机拍回去", hint: "想反向取证，但可能诱发冲突且难以固定事实。", score: 0 }
+        ]
+      },
+      {
+        category: "隐私与人身权",
+        kicker: "SCENARIO 08 · 肖像权",
+        title: "朋友未经同意，把你的抓拍丑照发到朋友圈并配文“看看这个傻子”，你会？",
+        hint: "朋友之间的玩笑，也要有边界。",
+        options: [
+          { title: "明确要求删除并道歉，说明这涉及肖像权和隐私", hint: "直接表达边界，让对方知道问题在哪里。", score: 2 },
+          { title: "评论里骂他两句，让他请客吃饭赔罪", hint: "表达了不满，但没有真正解决照片和传播问题。", score: 1 },
+          { title: "跟着一起笑，觉得朋友之间开个玩笑无所谓", hint: "照顾了关系，却忽略了自己的感受和权利。", score: 0 }
+        ]
+      },
+      {
+        category: "隐私与人身权",
+        kicker: "SCENARIO 09 · 网络安全",
+        title: "短信称快递丢失，要求点链接填写银行卡号和验证码，你会？",
+        hint: "“双倍赔付”很诱人，但这可能是钓鱼链接。",
+        options: [
+          { title: "无视并删除，去官方 App 查看物流状态", hint: "不点陌生链接，也不泄露支付和验证码信息。", score: 2 },
+          { title: "点进去看看，但坚决不填验证码", hint: "保持了一定警惕，但点击陌生链接本身仍有风险。", score: 1 },
+          { title: "正好有快递没到，赶紧填信息申请赔付", hint: "被赔偿话术带动，可能导致账户和资金风险。", score: 0 }
+        ]
+      },
+      {
+        category: "隐私与人身权",
+        kicker: "SCENARIO 10 · 网络暴力",
+        title: "陌生人恶意辱骂、造谣，还公开了你的真实住址，你会？",
+        hint: "当网络伤害延伸到现实安全，应该优先怎么做？",
+        options: [
+          { title: "全平台截图录屏取证，向平台投诉并向派出所报案", hint: "同时固定证据、要求平台处置并寻求警方帮助。", score: 2 },
+          { title: "注销账号，退网保平安", hint: "暂时远离伤害，但可能损失关键证据和维权机会。", score: 1 },
+          { title: "顺着网线过去找他真人 PK", hint: "情绪可以理解，但线下冲突只会放大风险。", score: 0 }
+        ]
+      },
+      {
+        category: "消费与公共生活",
+        kicker: "SCENARIO 11 · 食品安全",
+        title: "外卖里吃出虫子，商家说“退款可以，先把差评删了”，你会？",
+        hint: "退款、差评和食品安全责任是三件不同的事。",
+        options: [
+          { title: "拒绝删评，留证并依法主张赔偿、投诉 12315", hint: "保留订单和异物照片，通过正规渠道处理。", score: 2 },
+          { title: "接受退款，但坚决不删差评", hint: "守住了评价真实性，但还没有完整主张食品安全责任。", score: 1 },
+          { title: "拿退款删差评，多一事不如少一事", hint: "为了避免麻烦而放弃了继续反映问题的机会。", score: 0 }
+        ]
+      },
+      {
+        category: "消费与公共生活",
+        kicker: "SCENARIO 12 · 消费权",
+        title: "餐厅谢绝自带酒水，还要收 50 元开瓶费，你会？",
+        hint: "看似店规，也要判断它是否合理限制消费者权利。",
+        options: [
+          { title: "明确拒绝：这是侵犯自主选择权的霸王条款", hint: "经营者不能以格式条款限制消费者的合法选择。", score: 2 },
+          { title: "跟经理吵一架，然后不给钱直接走人", hint: "不愿意接受不合理收费，但处理方式比较冲动。", score: 1 },
+          { title: "算了，默默交钱，以后再也不来", hint: "为了少一件事选择妥协，也没有留下维权记录。", score: 0 }
+        ]
+      },
+      {
+        category: "消费与公共生活",
+        kicker: "SCENARIO 13 · 公共秩序",
+        title: "高铁邻座脱鞋把脚搭在扶手上，还大声外放视频，你会？",
+        hint: "公共空间里的自由，以不打扰他人为边界。",
+        options: [
+          { title: "礼貌提醒，不听后呼叫乘务员或乘警协调", hint: "先沟通，必要时借助公共秩序管理力量。", score: 2 },
+          { title: "戴上降噪耳机，闭上眼睛假装睡着", hint: "暂时规避不适，但没有维护自己的乘车体验。", score: 1 },
+          { title: "偷拍对方脸部，发到网上公开曝光", hint: "以曝光代替处理，可能带来新的肖像和隐私问题。", score: 0 }
+        ]
+      },
+      {
+        category: "消费与公共生活",
+        kicker: "SCENARIO 14 · 人身安全",
+        title: "地铁上看到有人偷拍他人裙底，你会？",
+        hint: "既要有正义感，也要选择安全、有效的帮助方式。",
+        options: [
+          { title: "侧身挡住镜头并大声提醒，立即呼叫地铁安保", hint: "及时打断行为并让专业人员到场处置。", score: 2 },
+          { title: "拍下偷拍者的过程，随后报警", hint: "注意取证值得肯定，但现场帮助和制止同样重要。", score: 1 },
+          { title: "很气愤，但担心被报复，选择走开", hint: "害怕可以理解，也可以改为悄悄通知工作人员。", score: 0 }
+        ]
+      },
+      {
+        category: "消费与公共生活",
+        kicker: "SCENARIO 15 · 公共共有",
+        title: "有人把小区公共绿地铲掉，种上了自家蔬菜，你会？",
+        hint: "公共绿地属于全体业主共有，不能随意改成“私家菜园”。",
+        options: [
+          { title: "向物业或居委会反映，要求恢复公共绿地", hint: "通过管理渠道制止占用共有空间。", score: 2 },
+          { title: "觉得种菜也挺辛苦，只要不挡路就行", hint: "照顾了对方感受，但忽略了公共利益。", score: 1 },
+          { title: "下次我也去占一块地，种点葱", hint: "把个别占用当成可效仿的先例，可能扩大损害。", score: 0 }
+        ]
+      },
+      {
+        category: "校园与公民素养",
+        kicker: "SCENARIO 16 · 校园平等",
+        title: "同学长期被起侮辱性绰号，还有人在群里传播，你会？",
+        hint: "面对校园欺凌，沉默也是一种态度。",
+        options: [
+          { title: "先确保安全，明确制止，记录信息并陪同求助", hint: "给受欺凌者支持，也把关键事实留给老师处理。", score: 2 },
+          { title: "看看有没有别人先出面，自己再决定", hint: "有同情心，但行动上比较依赖旁人。", score: 1 },
+          { title: "觉得只是玩笑，也跟着叫两句", hint: "把伤害当成玩笑，可能成为欺凌的一部分。", score: 0 }
+        ]
+      },
+      {
+        category: "校园与公民素养",
+        kicker: "SCENARIO 17 · 个人信息",
+        title: "报名活动时，主办方要求填写身份证号、住址和银行卡号，你会？",
+        hint: "收集个人信息应当有明确目的，并遵循必要范围。",
+        options: [
+          { title: "先问收集用途和保护方式，拒绝与活动无关的信息", hint: "对照活动实际需要，只提供必要信息。", score: 2 },
+          { title: "先随便填几个数字应付过去", hint: "避免了直接提供，但可能影响报名有效性。", score: 1 },
+          { title: "让填什么就填什么，全部发到群里", hint: "忽视了敏感个人信息在公开渠道传播的风险。", score: 0 }
+        ]
+      },
+      {
+        category: "校园与公民素养",
+        kicker: "SCENARIO 18 · 平等就业",
+        title: "招聘广告写着“仅限男性”或明确排除某个地区的人，你会？",
+        hint: "与岗位无关的性别、地域限制，可能涉及就业歧视。",
+        options: [
+          { title: "保存招聘页面，向平台或劳动保障部门咨询投诉", hint: "先固定证据，再询问是否存在合理职业要求。", score: 2 },
+          { title: "截图发到群里吐槽几句，然后划走", hint: "看见了问题，但没有推动平台或监管部门处理。", score: 1 },
+          { title: "招聘方有自己的考虑，不用管", hint: "把可能的歧视当成正常规定，放弃了追问。", score: 0 }
+        ]
+      },
+      {
+        category: "校园与公民素养",
+        kicker: "SCENARIO 19 · 公共安全",
+        title: "有人把电动自行车电池带进宿舍楼道充电，你会？",
+        hint: "电池室内充电存在明显的火灾风险，公共安全不能赌运气。",
+        options: [
+          { title: "立即劝阻并报告宿管；有明火或浓烟时拨打 119", hint: "尽快让专业管理人员介入，避免冒险自行处理。", score: 2 },
+          { title: "等宿管巡查时再说，暂时绕开那个楼道", hint: "意识到危险，但没有及时减少风险。", score: 1 },
+          { title: "大家都在充，应该没事，不用多管", hint: "把常见做法当成安全证明，低估了风险。", score: 0 }
+        ]
+      },
+      {
+        category: "校园与公民素养",
+        kicker: "SCENARIO 20 · 数字权利",
+        title: "扫码领小礼品时，页面要求授权通讯录和相册，你会？",
+        hint: "最后一道题。便利和隐私之间，你会怎样选择？",
+        options: [
+          { title: "拒绝无关权限；确需填写时只提供活动必要信息", hint: "礼品不能成为过度收集个人信息的理由。", score: 2 },
+          { title: "先全部同意领完礼品，事后再去设置里关闭", hint: "有隐私意识，但信息可能已经在授权时被读取。", score: 1 },
+          { title: "反正只是领个礼品，全部授权最省事", hint: "为了便利交出通讯录、相册等敏感信息。", score: 0 }
+        ]
+      }
+    ];
+
+    const selectedQuestionIndexes = [0, 2, 5, 6, 8, 10, 11, 13, 15, 19];
+    const questions = selectedQuestionIndexes.map((index, displayIndex) => ({
+      ...allQuestionBank[index],
+      kicker: `情境 ${String(displayIndex + 1).padStart(2, "0")} · ${allQuestionBank[index].category}`
+    }));
+
+    const archetypes = {
+      hardcore: {
+        name: "硬核维权战神",
+        heading: "法条在手，<br>边界感拉满。",
+        quote: "路见不平一声吼，法条在手跟我走！",
+        summary: "你的法律边界感极强，遇事知道留证、找渠道、讲依据，是朋友圈里最靠谱的守护者。",
+        traits: ["#边界感极强", "#留证找法", "#靠谱守护"],
+        tone: "hardcore"
+      },
+      balanced: {
+        name: "人间清醒懂法派",
+        heading: "遇事不慌，<br>理性吃瓜。",
+        quote: "多一点硬气，你能改变世界。",
+        summary: "你具备一定的维权意识，但偶尔也会在“多一事不如少一事”的边缘试探。稍微硬气一点，你能改变世界。",
+        traits: ["#理性吃瓜", "#潜力在线", "#再硬气点"],
+        tone: "balanced"
+      },
+      observer: {
+        name: "吃瓜界清醒担当",
+        heading: "围观有尺，<br>发言有度。",
+        quote: "先看事实，再决定站不站队。",
+        summary: "你不会轻易被热点带着跑，知道事实和边界比情绪更重要。下一次遇到明显越界时，也别忘了把“看见”变成“行动”。",
+        traits: ["#理性围观", "#事实优先", "#等待出手"],
+        tone: "observer"
+      },
+      labor: {
+        name: "职场边界官",
+        heading: "下班有边界，<br>权益有依据。",
+        quote: "该我的权益，我会好好说清楚。",
+        summary: "你对社保、休假和职场边界比较敏感，遇事会留意证据与正规渠道。把这份清醒带到每一次沟通里，你会更有底气。",
+        traits: ["#职场清醒", "#边界明确", "#证据意识"],
+        tone: "labor"
+      },
+      privacy: {
+        name: "隐私防火墙",
+        heading: "信息不乱给，<br>边界守得牢。",
+        quote: "不围观，不扩散，也不让伤害继续。",
+        summary: "你对个人信息和网络传播很警觉，尤其擅长识别“看似小事”的风险。守住自己的数据，也愿意提醒身边的人别越界。",
+        traits: ["#信息守门", "#拒绝扩散", "#风险敏感"],
+        tone: "privacy"
+      },
+      consumer: {
+        name: "消费反套路侠",
+        heading: "套路看得穿，<br>权益算得清。",
+        quote: "先留证据，再讲道理。",
+        summary: "你熟悉订单、凭证和平台规则，不容易被“退款删评”“店规免责”这些话术绕进去。理性较真，是你的消费保护色。",
+        traits: ["#拒绝套路", "#保留凭证", "#理性较真"],
+        tone: "consumer"
+      },
+      campus: {
+        name: "校园正义合伙人",
+        heading: "有温度的边界，<br>有行动的善意。",
+        quote: "不只围观，也愿意做先站出来的人。",
+        summary: "你关心身边人的处境，也愿意用规则保护善意。面对校园欺凌、隐私泄露或公共风险，你会选择合适的方式提醒、记录和求助。",
+        traits: ["#关心他人", "#规则守护", "#行动有度"],
+        tone: "campus"
+      },
+      retreat: {
+        name: "退堂鼓艺术家",
+        heading: "脾气太好，<br>也要学会说不。",
+        quote: "法律不保护躺在权利上睡觉的人！",
+        summary: "你的脾气太好啦，总是选择妥协。快来普法游园会补补课，把属于你的权利拿回来！",
+        traits: ["#温柔但让步", "#权利待领取", "#快来补课"],
+        tone: "retreat"
+      }
+    };
+
+    const specialistByCategory = {
+      "劳动权": "labor",
+      "隐私与人身权": "privacy",
+      "消费与公共生活": "consumer",
+      "校园与公民素养": "campus"
+    };
+
+    const scoreCategories = [
+      { label: "劳动权" },
+      { label: "隐私与人身权" },
+      { label: "消费与公共生活" },
+      { label: "校园与公民素养" }
+    ];
+
+    const state = {
+      questionIndex: 0,
+      answers: [],
+      avatarData: "",
+      resultType: "hardcore",
+      score: 20,
+      completedAt: new Date(),
+      cardCode: "",
+      analysisTimer: null
+    };
+
+    let questionOrders = [];
+    function shuffleOptions() {
+      const offset = Math.floor(Math.random() * 3);
+      questionOrders = questions.map((question, questionIndex) => {
+        const correctIndex = question.options.findIndex(option => option.score === 2);
+        const remaining = question.options.map((_, index) => index).filter(index => index !== correctIndex);
+        for (let index = remaining.length - 1; index > 0; index -= 1) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [remaining[index], remaining[swapIndex]] = [remaining[swapIndex], remaining[index]];
+        }
+        const order = new Array(question.options.length).fill(null);
+        order[(questionIndex + offset) % question.options.length] = correctIndex;
+        let remainingIndex = 0;
+        order.forEach((value, position) => {
+          if (value === null) order[position] = remaining[remainingIndex++];
+        });
+        return order;
+      });
+    }
+
+    function optionOrder(questionIndex) {
+      if (!questionOrders[questionIndex]) {
+        questionOrders[questionIndex] = questions[questionIndex].options.map((_, index) => index);
+      }
+      return questionOrders[questionIndex];
+    }
+
+    const elements = {
+      intro: document.getElementById("introScreen"),
+      quiz: document.getElementById("quizScreen"),
+      analysis: document.getElementById("analysisScreen"),
+      result: document.getElementById("resultScreen"),
+      startButton: document.getElementById("startButton"),
+      backButton: document.getElementById("backButton"),
+      nextButton: document.getElementById("nextButton"),
+      retryButton: document.getElementById("retryButton"),
+      saveButton: document.getElementById("saveButton"),
+      shareButton: document.getElementById("shareButton"),
+      avatarButton: document.getElementById("avatarButton"),
+      avatarInput: document.getElementById("avatarInput"),
+      avatarPreview: document.getElementById("avatarPreview"),
+      nickname: document.getElementById("nickname"),
+      nicknameCount: document.getElementById("nicknameCount"),
+      stepCounter: document.getElementById("stepCounter"),
+      progressTrack: document.querySelector(".progress-track"),
+      progressFill: document.getElementById("progressFill"),
+      questionKicker: document.getElementById("questionKicker"),
+      questionTitle: document.getElementById("questionTitle"),
+      questionHint: document.getElementById("questionHint"),
+      questionCard: document.getElementById("questionCard"),
+      options: document.getElementById("options"),
+      posterName: document.getElementById("posterName"),
+      posterAvatar: document.getElementById("posterAvatar"),
+      posterArchetype: document.getElementById("posterArchetype"),
+      posterScore: document.getElementById("posterScore"),
+      posterQuote: document.getElementById("posterQuote"),
+      posterTraits: document.getElementById("posterTraits"),
+      posterDate: document.getElementById("posterDate"),
+      posterCode: document.getElementById("posterCode"),
+      resultHeading: document.getElementById("resultHeading"),
+      resultScore: document.getElementById("resultScore"),
+      resultSummary: document.getElementById("resultSummary"),
+      dnaBars: document.getElementById("dnaBars"),
+      toast: document.getElementById("toast"),
+      canvas: document.getElementById("posterCanvas")
+    };
+
+    let toastTimer;
+    function showToast(message) {
+      window.clearTimeout(toastTimer);
+      elements.toast.textContent = message;
+      elements.toast.classList.add("is-visible");
+      toastTimer = window.setTimeout(() => elements.toast.classList.remove("is-visible"), 2600);
+    }
+
+    function screen(name) {
+      elements.intro.hidden = name !== "intro";
+      elements.quiz.hidden = name !== "quiz";
+      elements.analysis.hidden = name !== "analysis";
+      elements.result.hidden = name !== "result";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderAvatar() {
+      if (state.avatarData) {
+        elements.avatarPreview.outerHTML = `<img id="avatarPreview" src="${state.avatarData}" alt="已选择的头像">`;
+        elements.posterAvatar.innerHTML = `<img src="${state.avatarData}" alt="">`;
+      } else {
+        if (!elements.avatarPreview || elements.avatarPreview.tagName !== "SPAN") {
+          elements.avatarButton.insertAdjacentHTML("afterbegin", `
+            <span class="default-avatar" id="avatarPreview" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                <circle cx="32" cy="23" r="10" fill="#112C40"/>
+                <path d="M14 55c1-12 8-19 18-19s17 7 18 19" fill="#112C40"/>
+              </svg>
+            </span>`);
+        }
+        elements.posterAvatar.innerHTML = `<span class="default-avatar">我</span>`;
+      }
+    }
+
+    function handleAvatarUpload(file) {
+      if (!file) return;
+      if (!file.type.startsWith("image/")) {
+        showToast("请选择一张图片作为头像");
+        return;
+      }
+      if (file.size > 12 * 1024 * 1024) {
+        showToast("图片请控制在 12MB 以内");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        const image = new Image();
+        image.onload = () => {
+          const size = 512;
+          const crop = document.createElement("canvas");
+          crop.width = size;
+          crop.height = size;
+          const context = crop.getContext("2d");
+          const sourceSize = Math.min(image.width, image.height);
+          const sourceX = (image.width - sourceSize) / 2;
+          const sourceY = (image.height - sourceSize) / 2;
+          context.drawImage(image, sourceX, sourceY, sourceSize, sourceSize, 0, 0, size, size);
+          state.avatarData = crop.toDataURL("image/jpeg", 0.9);
+          renderAvatar();
+          showToast("头像已就位，它会出现在你的专属海报上");
+        };
+        image.onerror = () => showToast("这张图片暂时无法读取，请换一张试试");
+        image.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    window.setWechatAvatar = async function setWechatAvatar(url) {
+      try {
+        const response = await fetch(url, { credentials: "include" });
+        if (!response.ok) throw new Error("avatar");
+        const blob = await response.blob();
+        handleAvatarUpload(new File([blob], "wechat-avatar.jpg", { type: blob.type || "image/jpeg" }));
+      } catch (error) {
+        showToast("暂未读取到头像，请手动选择照片");
+      }
+    };
+
+    function renderQuestion() {
+      const index = state.questionIndex;
+      const question = questions[index];
+      const totalQuestions = String(questions.length).padStart(2, "0");
+      elements.stepCounter.textContent = `${String(index + 1).padStart(2, "0")} / ${totalQuestions}`;
+      elements.progressTrack.setAttribute("aria-valuemax", String(questions.length));
+      elements.progressTrack.setAttribute("aria-valuenow", String(index + 1));
+      elements.progressFill.style.width = `${((index + 1) / questions.length) * 100}%`;
+      elements.questionKicker.textContent = question.kicker;
+      elements.questionTitle.textContent = question.title;
+      elements.questionHint.textContent = question.hint;
+      elements.nextButton.disabled = state.answers[index] === undefined;
+      elements.nextButton.firstChild.textContent = index === questions.length - 1 ? "生成我的海报" : "下一题";
+      elements.options.innerHTML = "";
+
+      optionOrder(index).forEach((optionIndex, displayIndex) => {
+        const option = question.options[optionIndex];
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.setAttribute("aria-pressed", state.answers[index] === optionIndex ? "true" : "false");
+        button.innerHTML = `
+          <span class="option-letter">${String.fromCharCode(65 + displayIndex)}</span>
+          <span class="option-copy">
+            <strong>${option.title}</strong>
+            <span>${option.hint}</span>
+          </span>`;
+        button.addEventListener("click", () => {
+          state.answers[index] = optionIndex;
+          renderQuestion();
+        });
+        elements.options.appendChild(button);
+      });
+      elements.questionCard.animate(
+        [
+          { opacity: 0.4, transform: "translateX(12px)" },
+          { opacity: 1, transform: "translateX(0)" }
+        ],
+        { duration: 260, easing: "ease-out" }
+      );
+    }
+
+    function startQuiz() {
+      state.questionIndex = 0;
+      state.answers = [];
+      shuffleOptions();
+      screen("quiz");
+      renderQuestion();
+    }
+
+    function goBack() {
+      if (state.questionIndex > 0) {
+        state.questionIndex -= 1;
+        renderQuestion();
+      } else {
+        screen("intro");
+      }
+    }
+
+    function goNext() {
+      if (state.answers[state.questionIndex] === undefined) return;
+      if (state.questionIndex < questions.length - 1) {
+        state.questionIndex += 1;
+        renderQuestion();
+        return;
+      }
+      showAnalysis();
+    }
+
+    function showAnalysis() {
+      screen("analysis");
+      const copies = [
+        "正在读取你的选择倾向…",
+        "正在描绘你的维权风格…",
+        "正在把校园线稿放进海报…"
+      ];
+      const copy = document.getElementById("analysisCopy");
+      let count = 0;
+      copy.textContent = copies[0];
+      const timer = window.setInterval(() => {
+        count += 1;
+        copy.textContent = copies[Math.min(count, copies.length - 1)];
+      }, 420);
+      window.clearTimeout(state.analysisTimer);
+      state.analysisTimer = window.setTimeout(() => {
+        window.clearInterval(timer);
+        calculateResult();
+        renderResult();
+        screen("result");
+        if (window.matchMedia("(max-width: 520px)").matches) {
+          window.setTimeout(() => document.querySelector(".poster-stage").scrollIntoView({ behavior: "smooth", block: "start" }), 120);
+        }
+      }, 1450);
+    }
+
+    function calculateResult() {
+      let score = 0;
+      const categoryScores = Object.fromEntries(scoreCategories.map(category => [category.label, 0]));
+      state.answers.forEach((answerIndex, questionIndex) => {
+        if (answerIndex === undefined) return;
+        const question = questions[questionIndex];
+        const points = question.options[answerIndex].score;
+        score += points;
+        categoryScores[question.category] += points;
+      });
+      state.score = score;
+      const ranked = scoreCategories.map(category => {
+        const max = questions.filter(question => question.category === category.label).length * 2;
+        return { label: category.label, rate: categoryScores[category.label] / max };
+      }).sort((a, b) => b.rate - a.rate);
+      const lead = ranked[0].rate - ranked[1].rate;
+      const hasStandout = ranked[0].rate >= 0.75 && lead >= 0.25;
+      if (score >= 18) {
+        state.resultType = "hardcore";
+      } else if (score < 10) {
+        state.resultType = "retreat";
+      } else if (hasStandout) {
+        state.resultType = specialistByCategory[ranked[0].label];
+      } else {
+        state.resultType = score >= 14 ? "balanced" : "observer";
+      }
+      state.completedAt = new Date();
+      state.cardCode = String(Date.now()).slice(-6);
+    }
+
+    function renderResult() {
+      const archetype = archetypes[state.resultType];
+      const nickname = elements.nickname.value.trim() || "校园法治合伙人";
+      elements.posterName.textContent = nickname;
+      elements.posterArchetype.textContent = archetype.name;
+      elements.posterScore.textContent = `法治意识 ${state.score} / ${questions.length * 2}`;
+      elements.resultScore.textContent = `${state.score} / ${questions.length * 2}`;
+      elements.posterQuote.textContent = archetype.quote;
+      elements.posterTraits.innerHTML = archetype.traits.map(trait => `<span>${trait}</span>`).join("");
+      elements.posterDate.textContent = state.completedAt.toLocaleDateString("zh-CN", { year: "numeric", month: "2-digit" }).replaceAll("/", ".");
+      elements.posterCode.textContent = state.cardCode;
+      elements.resultHeading.innerHTML = archetype.heading;
+      elements.resultSummary.textContent = archetype.summary;
+      elements.posterAvatar.innerHTML = state.avatarData
+        ? `<img src="${state.avatarData}" alt="">`
+        : `<span class="default-avatar">我</span>`;
+
+      const categoryScores = Object.fromEntries(scoreCategories.map(category => [category.label, 0]));
+      state.answers.forEach((answerIndex, index) => {
+        categoryScores[questions[index].category] += questions[index].options[answerIndex].score;
+      });
+      elements.dnaBars.innerHTML = scoreCategories.map(category => {
+        const points = categoryScores[category.label];
+        const categoryMax = questions.filter(question => question.category === category.label).length * 2;
+        const percentage = Math.round((points / categoryMax) * 100);
+        return `
+        <div class="dna-row">
+          <span>${category.label}</span>
+          <div class="dna-track"><div class="dna-fill" data-value="${percentage}"></div></div>
+          <span class="dna-value">${points} / ${categoryMax}</span>
+        </div>`;
+      }).join("");
+      window.requestAnimationFrame(() => {
+        elements.dnaBars.querySelectorAll(".dna-fill").forEach(fill => {
+          fill.style.width = `${fill.dataset.value}%`;
+        });
+      });
+    }
+
+    function roundRect(context, x, y, width, height, radius) {
+      const r = Math.min(radius, width / 2, height / 2);
+      context.beginPath();
+      context.moveTo(x + r, y);
+      context.arcTo(x + width, y, x + width, y + height, r);
+      context.arcTo(x + width, y + height, x, y + height, r);
+      context.arcTo(x, y + height, x, y, r);
+      context.arcTo(x, y, x + width, y, r);
+      context.closePath();
+    }
+
+    function drawWrappedText(context, text, x, y, maxWidth, lineHeight, maxLines = 2) {
+      const chars = Array.from(text);
+      const lines = [];
+      let line = "";
+      for (const char of chars) {
+        if (context.measureText(line + char).width > maxWidth && line) {
+          lines.push(line);
+          line = char;
+        } else {
+          line += char;
+        }
+      }
+      if (line) lines.push(line);
+      lines.slice(0, maxLines).forEach((item, index) => {
+        context.fillText(item, x, y + index * lineHeight);
+      });
+      return Math.min(lines.length, maxLines);
+    }
+
+    function drawSchoolLineart(context, width, height) {
+      const sx = width / 1200;
+      const sy = height / 760;
+      context.save();
+      context.strokeStyle = "#17364D";
+      context.lineWidth = 2.2;
+      context.lineCap = "round";
+      context.lineJoin = "round";
+      context.globalAlpha = 0.48;
+      const p = (x, y) => [x * sx, y * sy];
+      const path = points => {
+        context.beginPath();
+        points.forEach(([x, y], index) => {
+          const [px, py] = p(x, y);
+          if (index === 0) context.moveTo(px, py);
+          else context.lineTo(px, py);
+        });
+        context.stroke();
+      };
+      path([[322,594],[322,350],[412,310],[412,268],[456,268],[456,310],[532,348],[532,594]]);
+      path([[258,594],[258,393],[322,350]]);
+      path([[532,348],[618,386],[618,594]]);
+      path([[346,594],[346,384],[508,384],[508,594]]);
+      path([[326,376],[530,376]]);
+      path([[368,594],[368,492],[426,492],[426,594]]);
+      [[374,426],[466,426],[374,490],[466,490]].forEach(([x,y]) => context.strokeRect(...p(x,y), 44*sx, 46*sy));
+      path([[406,271],[462,271]]);
+      context.beginPath();
+      const [cx, cy] = p(434,289);
+      context.arc(cx, cy, 20*sx, 0, Math.PI*2);
+      context.stroke();
+      path([[434,252],[434,210],[486,222],[434,236]]);
+      path([[290,594],[586,594]]);
+      path([[646,594],[646,476],[680,458],[680,413],[717,413],[717,458],[752,476],[752,594]]);
+      path([[691,594],[691,515],[729,515],[729,594]]);
+      path([[680,424],[717,424]]);
+      path([[665,476],[738,476]]);
+      path([[711,413],[711,381],[755,391],[711,403]]);
+      path([[784,596],[795,423],[778,398],[796,348],[816,398],[802,349]]);
+      path([[235,600],[224,445],[204,425],[216,375],[234,370]]);
+      path([[887,600],[887,519],[922,498],[922,470],[947,470],[947,498],[984,519],[984,600]]);
+      path([[922,600],[922,540],[950,540],[950,600]]);
+      path([[914,487],[955,487]]);
+      path([[893,518],[977,518]]);
+      path([[901,600],[970,600]]);
+      path([[1024,601],[1010,475],[992,458],[1002,416],[1024,412]]);
+      path([[124,612],[116,486],[98,469],[109,426],[129,424]]);
+      path([[1116,616],[1105,499],[1089,483],[1099,445],[1117,438]]);
+      path([[69,641],[1127,641]]);
+      path([[84,640],[336,646],[585,645],[854,652],[1118,635]]);
+      context.restore();
+      return p;
+    }
+
+    async function createPosterBlob() {
+      const canvas = elements.canvas;
+      const context = canvas.getContext("2d");
+      const width = canvas.width;
+      const height = canvas.height;
+      const archetype = archetypes[state.resultType];
+      const nickname = elements.nickname.value.trim() || "校园法治合伙人";
+      let avatarImage = null;
+      if (state.avatarData) {
+        avatarImage = await new Promise(resolve => {
+          const image = new Image();
+          image.onload = () => resolve(image);
+          image.onerror = () => resolve(null);
+          image.src = state.avatarData;
+        });
+      }
+      const campusImage = await new Promise(resolve => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => resolve(null);
+        image.src = window.EMBEDDED_ASSETS?.campus || "./assets/school-campus-lineart.png";
+      });
+      const emblemImage = await new Promise(resolve => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => resolve(null);
+        image.src = window.EMBEDDED_ASSETS?.emblem || "./assets/gcc-emblem.png";
+      });
+      const ink = "#112C40";
+      const red = "#E4553E";
+      const yellow = "#EFC65A";
+      const paper = "#F9F3E6";
+      const fontSans = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif';
+      const fontSerif = '"Songti SC","STSong","Noto Serif CJK SC",serif';
+
+      const gradient = context.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, "#FFFDF8");
+      gradient.addColorStop(1, paper);
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, width, height);
+
+      const glow = context.createRadialGradient(970, 120, 10, 970, 120, 390);
+      glow.addColorStop(0, "rgba(239,198,90,.45)");
+      glow.addColorStop(1, "rgba(239,198,90,0)");
+      context.fillStyle = glow;
+      context.fillRect(0, 0, width, height);
+
+      if (emblemImage) {
+        context.save();
+        context.beginPath();
+        context.arc(134, 104, 56, 0, Math.PI * 2);
+        context.clip();
+        context.drawImage(emblemImage, 78, 48, 112, 112);
+        context.restore();
+        context.strokeStyle = "rgba(17,44,64,.24)";
+        context.lineWidth = 2;
+        context.beginPath();
+        context.arc(134, 104, 56, 0, Math.PI * 2);
+        context.stroke();
+      }
+      context.fillStyle = ink;
+      context.font = `800 25px ${fontSans}`;
+      context.textAlign = "right";
+      context.fillText("我的法治 DNA", width - 76, 111);
+      context.textAlign = "left";
+      context.fillRect(76, 174, width - 152, 4);
+
+      context.font = `900 112px ${fontSerif}`;
+      context.fillStyle = ink;
+      context.fillText("我的", 76, 285);
+      context.fillStyle = red;
+      context.fillText("法治 DNA", 76, 398);
+
+      context.save();
+      context.translate(width - 153, 235);
+      context.rotate(0.12);
+      context.fillStyle = ink;
+      context.beginPath();
+      context.arc(8, 12, 88, 0, Math.PI * 2);
+      context.fill();
+      context.fillStyle = red;
+      context.beginPath();
+      context.arc(0, 4, 84, 0, Math.PI * 2);
+      context.fill();
+      context.fillStyle = "#FFFDF8";
+      context.font = `800 28px ${fontSerif}`;
+      context.textAlign = "center";
+      context.fillText("维权", 0, -3);
+      context.fillText("先锋", 0, 30);
+      context.restore();
+
+      const avatarX = 155;
+      const avatarY = 540;
+      const avatarRadius = 92;
+      context.strokeStyle = ink;
+      context.lineWidth = 3;
+      context.beginPath();
+      context.arc(avatarX, avatarY, avatarRadius + 14, 0, Math.PI * 2);
+      context.stroke();
+      context.save();
+      context.beginPath();
+      context.arc(avatarX, avatarY, avatarRadius, 0, Math.PI * 2);
+      context.closePath();
+      context.clip();
+      context.fillStyle = yellow;
+      context.fillRect(avatarX - avatarRadius, avatarY - avatarRadius, avatarRadius * 2, avatarRadius * 2);
+      if (avatarImage) {
+        const sourceSize = Math.min(avatarImage.width, avatarImage.height);
+        context.drawImage(
+          avatarImage,
+          (avatarImage.width - sourceSize) / 2,
+          (avatarImage.height - sourceSize) / 2,
+          sourceSize,
+          sourceSize,
+          avatarX - avatarRadius,
+          avatarY - avatarRadius,
+          avatarRadius * 2,
+          avatarRadius * 2
+        );
+      } else {
+        const avatarGradient = context.createLinearGradient(avatarX - 70, avatarY - 80, avatarX + 80, avatarY + 80);
+        avatarGradient.addColorStop(0, "#CDE6D8");
+        avatarGradient.addColorStop(1, yellow);
+        context.fillStyle = avatarGradient;
+        context.fillRect(avatarX - avatarRadius, avatarY - avatarRadius, avatarRadius * 2, avatarRadius * 2);
+        context.fillStyle = ink;
+        context.beginPath();
+        context.arc(avatarX, avatarY - 27, 37, 0, Math.PI * 2);
+        context.fill();
+        context.beginPath();
+        context.ellipse(avatarX, avatarY + 75, 68, 53, 0, Math.PI, Math.PI * 2);
+        context.fill();
+      }
+      context.restore();
+      context.fillStyle = yellow;
+      context.beginPath();
+      context.arc(avatarX + 90, avatarY - 73, 20, 0, Math.PI * 2);
+      context.fill();
+      context.strokeStyle = ink;
+      context.lineWidth = 2;
+      context.stroke();
+
+      context.textAlign = "left";
+      context.fillStyle = ink;
+      context.font = `800 43px ${fontSans}`;
+      context.fillText(Array.from(nickname).slice(0, 12).join(""), 298, 493);
+      context.fillStyle = "#456071";
+      context.font = `600 22px ${fontSans}`;
+      context.fillText("知权 · 明理 · 敢发声", 300, 530);
+      context.fillStyle = "#BB3F32";
+      context.font = `900 65px ${fontSerif}`;
+      context.fillText(archetype.name, 298, 612);
+
+      context.font = `700 23px ${fontSans}`;
+      const scoreLabel = `法治意识 ${state.score} / ${questions.length * 2}`;
+      const scoreWidth = context.measureText(scoreLabel).width + 48;
+      context.fillStyle = yellow;
+      roundRect(context, 300, 639, scoreWidth, 47, 24);
+      context.fill();
+      context.strokeStyle = ink;
+      context.lineWidth = 2;
+      context.stroke();
+      context.fillStyle = ink;
+      context.fillText(scoreLabel, 324, 671);
+
+      context.fillStyle = ink;
+      context.font = `700 40px ${fontSerif}`;
+      context.fillText("“", 76, 735);
+      context.font = `700 33px ${fontSerif}`;
+      drawWrappedText(context, archetype.quote, 112, 726, 820, 51, 2);
+      context.font = `700 40px ${fontSerif}`;
+
+      archetype.traits.forEach((trait, index) => {
+        const labels = trait.replace("#", "");
+        context.font = `700 22px ${fontSans}`;
+        const labelWidth = context.measureText(labels).width + 44;
+        const x = 76 + index * 238;
+        if (index === 0) {
+          context.fillStyle = ink;
+          roundRect(context, x, 776, labelWidth, 48, 24);
+          context.fill();
+          context.fillStyle = "#FFFDF8";
+        } else if (index === 1) {
+          context.fillStyle = yellow;
+          roundRect(context, x, 776, labelWidth, 48, 24);
+          context.fill();
+          context.fillStyle = ink;
+        } else {
+          context.fillStyle = "transparent";
+          roundRect(context, x, 776, labelWidth, 48, 24);
+          context.strokeStyle = ink;
+          context.lineWidth = 2;
+          context.stroke();
+          context.fillStyle = ink;
+        }
+        context.fillText(labels, x + 22, 808);
+      });
+
+      if (campusImage) {
+        context.save();
+        context.globalAlpha = 0.64;
+        context.drawImage(campusImage, 0, 910, width, width * campusImage.height / campusImage.width);
+        context.restore();
+      }
+      context.save();
+      context.globalAlpha = 0.53;
+      context.strokeStyle = red;
+      context.lineWidth = 3.2;
+      context.beginPath();
+      context.moveTo(889, 940);
+      context.bezierCurveTo(960, 1040, 861, 1130, 941, 1211);
+      context.stroke();
+      context.strokeStyle = ink;
+      context.beginPath();
+      context.moveTo(958, 940);
+      context.bezierCurveTo(884, 1040, 976, 1130, 909, 1211);
+      context.stroke();
+      [974,1020,1072,1127,1178].forEach((y, index) => {
+        context.fillStyle = paper;
+        context.strokeStyle = ink;
+        context.lineWidth = 2.5;
+        context.beginPath();
+        context.arc(index % 2 ? 944 : 923, y, 7, 0, Math.PI * 2);
+        context.fill();
+        context.stroke();
+      });
+      context.restore();
+
+      context.fillStyle = "rgba(255,253,248,.92)";
+      context.fillRect(76, 1126, width - 152, 100);
+      context.strokeStyle = ink;
+      context.lineWidth = 2;
+      context.beginPath();
+      context.moveTo(76, 1126);
+      context.lineTo(width - 76, 1126);
+      context.moveTo(76, 1226);
+      context.lineTo(width - 76, 1226);
+      context.stroke();
+      context.fillStyle = "#456071";
+      context.font = `600 18px ${fontSans}`;
+      context.fillText("活动地点", 106, 1165);
+      context.fillText("活动时间", 728, 1165);
+      context.fillStyle = ink;
+      context.font = `800 28px ${fontSerif}`;
+      context.fillText("八、九教中庭广场", 106, 1205);
+      context.fillText("10:00-18:00", 728, 1205);
+
+      context.strokeStyle = "rgba(17,44,64,.55)";
+      context.lineWidth = 2;
+      context.beginPath();
+      context.moveTo(76, 1274);
+      context.lineTo(width - 76, 1274);
+      context.stroke();
+      context.fillStyle = ink;
+      context.font = `800 24px ${fontSans}`;
+      context.fillText("知法 · 守法 · 用法", 76, 1327);
+      context.fillStyle = "#456071";
+      context.font = `500 18px ${fontSans}`;
+      context.fillText(`校园普法互动 · ${state.completedAt.getFullYear()}.${String(state.completedAt.getMonth() + 1).padStart(2, "0")}`, 76, 1363);
+      context.textAlign = "right";
+      context.fillStyle = ink;
+      context.font = `600 18px ${fontSans}`;
+      context.fillText(`活动编号 ${state.cardCode}`, width - 76, 1327);
+      context.textAlign = "left";
+
+      return new Promise(resolve => canvas.toBlob(resolve, "image/png", 1));
+    }
+
+    async function savePoster() {
+      elements.saveButton.disabled = true;
+      try {
+        const blob = await createPosterBlob();
+        if (!blob) throw new Error("blob");
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = `我的法治DNA_${state.cardCode}.png`;
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+        showToast("海报已生成；若浏览器未自动保存，请长按海报保存到相册");
+      } catch (error) {
+        showToast("生成遇到问题，请稍后再试");
+      } finally {
+        elements.saveButton.disabled = false;
+      }
+    }
+
+    function resultShareUrl() {
+      const params = new URLSearchParams({
+        demo: "1",
+        r: state.resultType,
+        n: elements.nickname.value.trim() || "校园法治合伙人"
+      });
+      return `${window.location.href.split("?")[0]}?${params.toString()}`;
+    }
+
+    async function shareResult() {
+      const shareText = `我的法治 DNA 是「${archetypes[state.resultType].name}」：${archetypes[state.resultType].quote}`;
+      try {
+        const blob = await createPosterBlob();
+        const file = blob ? new File([blob], "我的法治DNA.png", { type: "image/png" }) : null;
+        if (navigator.share && file && navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: "我的法治 DNA",
+            text: shareText,
+            url: resultShareUrl(),
+            files: [file]
+          });
+          return;
+        }
+        await navigator.clipboard.writeText(`${shareText}\n${resultShareUrl()}`);
+        showToast("分享文案和结果链接已复制");
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+        showToast("当前浏览器不支持直接分享，请先保存海报");
+      }
+    }
+
+    function applyDemoFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const view = params.get("view");
+      if (view === "quiz") {
+        const startIndex = Math.max(0, Math.min(questions.length - 1, Number(params.get("q")) || 0));
+        shuffleOptions();
+        state.questionIndex = startIndex;
+        renderQuestion();
+        screen("quiz");
+        return;
+      }
+      const demo = params.get("demo");
+      if (demo === null) return;
+      const requested = params.get("r");
+      const demoAliases = { high: "hardcore", medium: "balanced", low: "retreat" };
+      const requestedType = demoAliases[requested] || requested;
+      const targetScore = requestedType === "retreat" ? 0 : ["balanced", "observer"].includes(requestedType) ? 1 : 2;
+      shuffleOptions();
+      state.answers = questions.map(question => question.options.findIndex(option => option.score === targetScore));
+      const name = params.get("n");
+      if (name) elements.nickname.value = Array.from(name).slice(0, 12).join("");
+      elements.nicknameCount.textContent = `${Array.from(elements.nickname.value).length} / 12`;
+      calculateResult();
+      if (requestedType && archetypes[requestedType]) state.resultType = requestedType;
+      renderResult();
+      screen("result");
+    }
+
+    async function showCanvasPreviewIfRequested() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("canvas") !== "1") return;
+      await new Promise(resolve => window.requestAnimationFrame(resolve));
+      const blob = await createPosterBlob();
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      document.body.innerHTML = "";
+      document.body.style.margin = "0";
+      document.body.style.background = "#e9dfca";
+      const image = document.createElement("img");
+      image.src = url;
+      image.alt = "法治 DNA 海报导出预览";
+      image.style.cssText = "display:block;width:min(100vw,1080px);height:auto;margin:0 auto;";
+      document.body.appendChild(image);
+    }
+
+    elements.startButton.addEventListener("click", startQuiz);
+    elements.backButton.addEventListener("click", goBack);
+    elements.nextButton.addEventListener("click", goNext);
+    elements.retryButton.addEventListener("click", startQuiz);
+    elements.saveButton.addEventListener("click", savePoster);
+    elements.shareButton.addEventListener("click", shareResult);
+    elements.avatarButton.addEventListener("click", () => elements.avatarInput.click());
+    elements.avatarInput.addEventListener("change", event => handleAvatarUpload(event.target.files[0]));
+    elements.nickname.addEventListener("input", () => {
+      const length = Array.from(elements.nickname.value).length;
+      elements.nicknameCount.textContent = `${length} / 12`;
+    });
+
+    renderAvatar();
+    applyDemoFromUrl();
+    showCanvasPreviewIfRequested();
+  </script>
+</body>
+</html>
